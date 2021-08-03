@@ -1,4 +1,4 @@
-package rest_config;
+package com.andorialabs.creando_3d.config;
 
 
 import org.springframework.context.annotation.Configuration;
