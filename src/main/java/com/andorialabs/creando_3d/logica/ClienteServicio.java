@@ -12,25 +12,9 @@ import com.andorialabs.creando_3d.persistencia.ClienteRepositorio;
 public class ClienteServicio {
 
 	@Autowired
-	private ClienteRepositorio repositorio;
+	private ClienteRepositorio clienteRepositorio;
 
-	public List<Cliente> listarClientes() {
-		return repositorio.findAll();
-	}
-
-	public Cliente getCliente(Integer idCliente) {
-		return repositorio.findById(idCliente).get();
-	}
-
-	public Cliente guardar(Cliente c) {
-		return repositorio.save(c);
-	}
-
-	public Cliente actualizar(Cliente c) {
-		return repositorio.save(c);
-	}
-
-	public void eliminar(Integer idCliente) {
-		repositorio.deleteById(idCliente);
+	public List<Cliente> getClientes() {
+		return clienteRepositorio.findAll();
 	}
 }

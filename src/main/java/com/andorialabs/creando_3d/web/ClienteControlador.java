@@ -21,30 +21,11 @@ import com.andorialabs.creando_3d.modelo.Cliente;
 @RequestMapping("/cliente")
 public class ClienteControlador {
 	@Autowired
-	private ClienteServicio servicio;
+	private ClienteServicio clienteServicio;
 
-	@GetMapping
-	public List<Cliente> listarClasificaciones(){
-		return servicio.listarClientes();
-	}
-
-	@GetMapping(value="/{idCliente}")
-	public Cliente getCliente(@PathVariable(name="idCliente") Integer idCliente) {
-		return servicio.getCliente(idCliente);
-	}
-	
-	@PostMapping
-	public Cliente guardar(@RequestBody Cliente c) {
-		return servicio.guardar(c);
+	@GetMapping(value="/")
+	public List<Cliente> getClientes(){
+		return clienteServicio.getClientes();
 	}
 
-	@RequestMapping(value="/{idCliente}", method=RequestMethod.PUT)
-	public Cliente actualizar(@RequestBody Cliente c, @PathVariable(name="idCliente") Integer idCliente) {
-		return servicio.actualizar(c);
-	}
-
-	@RequestMapping(value="/{idCliente}", method=RequestMethod.DELETE)
-	public void eliminar(@PathVariable(name="idCliente") Integer idCliente) {
-		servicio.eliminar(idCliente);
-	}
 }
