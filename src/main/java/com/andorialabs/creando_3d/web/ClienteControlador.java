@@ -23,7 +23,7 @@ public class ClienteControlador {
 	@Autowired
 	private ClienteServicio clienteServicio;
 
-	@GetMapping(value="/")
+	@GetMapping
 	public List<Cliente> getClientes(){
 		return clienteServicio.getClientes();
 	}

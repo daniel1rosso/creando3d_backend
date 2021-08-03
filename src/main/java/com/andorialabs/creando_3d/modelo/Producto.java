@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+
 @Entity
 public class Producto {
 	@Id
@@ -23,6 +23,62 @@ public class Producto {
 	private double tiempo;
 	private double costo;
 	private double precio_estimativo;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public float getAlto() {
+		return alto;
+	}
+	public void setAlto(float alto) {
+		this.alto = alto;
+	}
+	public float getAncho() {
+		return ancho;
+	}
+	public void setAncho(float ancho) {
+		this.ancho = ancho;
+	}
+	public float getLargo() {
+		return largo;
+	}
+	public void setLargo(float largo) {
+		this.largo = largo;
+	}
+	public float getGramos() {
+		return gramos;
+	}
+	public void setGramos(float gramos) {
+		this.gramos = gramos;
+	}
+	public double getTiempo() {
+		return tiempo;
+	}
+	public void setTiempo(double tiempo) {
+		this.tiempo = tiempo;
+	}
+	public double getCosto() {
+		return costo;
+	}
+	public void setCosto(double costo) {
+		this.costo = costo;
+	}
+	public double getPrecio_estimativo() {
+		return precio_estimativo;
+	}
+	public void setPrecio_estimativo(double precio_estimativo) {
+		this.precio_estimativo = precio_estimativo;
+	}
+	
+	
 }
 
 
