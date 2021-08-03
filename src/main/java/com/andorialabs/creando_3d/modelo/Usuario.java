@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Estado {
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private long id;
-	
-	private String nombre;
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Long id;
+    private String nombre;
+    
 }
