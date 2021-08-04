@@ -33,7 +33,7 @@ public class PedidoControlador {
 		return servicio.getPedido(idPedido);
 	}
 
-	@PostMapping
+	@PostMapping(value="/guardar")
 	public Pedido guardar(@RequestBody Pedido p) {
 		return servicio.guardar(p);
 	}

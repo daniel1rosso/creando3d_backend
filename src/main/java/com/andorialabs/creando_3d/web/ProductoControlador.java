@@ -29,22 +29,22 @@ public class ProductoControlador {
 	}
 
 	@GetMapping(value="/{idProducto}")
-	public Producto getProducto(@PathVariable(name="idProducto") Integer idProducto) {
+	public Producto getProducto(@PathVariable(name="idProducto") Long idProducto) {
 		return servicio.getProducto(idProducto);
 	}
 
-	@PostMapping
+	@PostMapping(value="/guardar")
 	public Producto guardar(@RequestBody Producto p) {
 		return servicio.guardar(p);
 	}
 
 	@RequestMapping(value="/{idProducto}", method=RequestMethod.PUT)
-	public Producto actualizar(@RequestBody Producto p, @PathVariable(name="idProducto") Integer idProducto) {
+	public Producto actualizar(@RequestBody Producto p, @PathVariable(name="idProducto") Long idProducto) {
 		return servicio.actualizar(p);
 	}
 
 	@RequestMapping(value="/{idProducto}", method=RequestMethod.DELETE)
-	public void eliminar(@PathVariable(name="idProducto") Integer idProducto) {
+	public void eliminar(@PathVariable(name="idProducto") Long idProducto) {
 		servicio.eliminar(idProducto);
 	}
 

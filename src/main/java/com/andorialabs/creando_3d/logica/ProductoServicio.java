@@ -1,6 +1,7 @@
 package com.andorialabs.creando_3d.logica;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class ProductoServicio {
 		return repositorio.findAll();
 	}
 
-	public Producto getProducto(Integer idProducto) {
+	public Producto getProducto(Long idProducto) {
 		return repositorio.findById(idProducto).get();
 	}
 
@@ -27,10 +28,14 @@ public class ProductoServicio {
 	}
 
 	public Producto actualizar(Producto p) {
-		return repositorio.save(p);
+		Optional<Producto> prod=repositorio.findById(p.getId());
+        if(!prod.isPresent()){
+            throw new RuntimeException("No existe");
+        }
+        return repositorio.save(p);
 	}
 
-	public void eliminar(Integer idProducto) {
+	public void eliminar(Long idProducto) {
 		repositorio.deleteById(idProducto);
 	}
 }

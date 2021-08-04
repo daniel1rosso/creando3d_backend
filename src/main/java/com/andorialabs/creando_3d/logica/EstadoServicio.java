@@ -33,4 +33,5 @@ public class EstadoServicio {
 	public void eliminar(Integer idEstado) {
 		repositorioEstado.deleteById(idEstado);
 	}
+	
 }

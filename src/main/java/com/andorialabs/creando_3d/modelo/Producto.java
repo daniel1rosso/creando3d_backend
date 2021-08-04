@@ -23,6 +23,7 @@ public class Producto {
 	private double tiempo;
 	private double costo;
 	private double precio_estimativo;
+	
 	public long getId() {
 		return id;
 	}
