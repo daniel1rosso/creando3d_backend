@@ -1,5 +1,6 @@
 package com.andorialabs.creando_3d.logica;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +13,33 @@ import com.andorialabs.creando_3d.persistencia.PedidoRepositorio;
 public class PedidoServicio {
 
 	@Autowired
-	private PedidoRepositorio repositorio;
+	private PedidoRepositorio repositorioPeddo;
 
-	public List<Pedido> listarPedidos() {
-		return repositorio.findAll();
+	public Iterable<Pedido> listarPedidos() {
+		return repositorioPeddo.findAll();
 	}
 
 	public Pedido getPedido(Long idPedido) {
-		return repositorio.findById(idPedido).get();
+		return repositorioPeddo.findById(idPedido).get();
 	}
 	
 	public Pedido guardar(Pedido p) {
-		return repositorio.save(p);
+		return repositorioPeddo.save(p);
 	}
 
 	public Pedido actualizar(Pedido p) {
-		return repositorio.save(p);
+		return repositorioPeddo.save(p);
 	}
 
 	public void eliminar(Long idPedido) {
-		repositorio.deleteById(idPedido);
+		repositorioPeddo.deleteById(idPedido);
 	}
+	
+    public Iterable<Pedido> listarFiltradoPorColor(String color) {
+        return repositorioPeddo.findByColorContainingIgnoreCase(color);
+    }
+    
+    public Iterable<Pedido> listarFiltradoPorColorPaginado(String color, Pageable pagina) {
+        return repositorioPeddo.findByColorContainingIgnoreCase(color,pagina);
+    }
 }

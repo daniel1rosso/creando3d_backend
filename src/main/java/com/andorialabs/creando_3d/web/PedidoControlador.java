@@ -1,7 +1,6 @@
 package com.andorialabs.creando_3d.web;
 
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.domain.Pageable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.andorialabs.creando_3d.logica.PedidoServicio;
@@ -27,7 +27,7 @@ public class PedidoControlador {
 	private PedidoServicio servicio;
 
 	@GetMapping
-	public List<Pedido> listarPedidos(){
+	public Iterable<Pedido> listarPedidos(){
 		return servicio.listarPedidos();
 	}
 
@@ -52,4 +52,13 @@ public class PedidoControlador {
 		servicio.eliminar(idPedido);
 	}
 
+    @GetMapping(value="/", params = {"color"})
+    public Iterable<Pedido> listarFiltradoPorColor(@RequestParam String color) {
+        return servicio.listarFiltradoPorColor(color);
+    }
+    
+    @GetMapping(params = {"color","sort"})
+    public Iterable<Pedido> listarFiltradoPorColorPaginado(@RequestParam String color, Pageable pagina) {
+        return servicio.listarFiltradoPorColorPaginado(color,pagina);
+    }
 }
