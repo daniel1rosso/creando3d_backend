@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.andorialabs.creando_3d.modelo.Pedido;
 
 @Repository
-public interface PedidoRepositorio extends JpaRepository<Pedido, Integer>{
+public interface PedidoRepositorio extends JpaRepository<Pedido, Long>{
 	
 	
 }

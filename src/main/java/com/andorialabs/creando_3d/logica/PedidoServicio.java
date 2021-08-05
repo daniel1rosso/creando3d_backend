@@ -18,7 +18,7 @@ public class PedidoServicio {
 		return repositorio.findAll();
 	}
 
-	public Pedido getPedido(Integer idPedido) {
+	public Pedido getPedido(Long idPedido) {
 		return repositorio.findById(idPedido).get();
 	}
 	
@@ -30,7 +30,7 @@ public class PedidoServicio {
 		return repositorio.save(p);
 	}
 
-	public void eliminar(Integer idPedido) {
+	public void eliminar(Long idPedido) {
 		repositorio.deleteById(idPedido);
 	}
 }
